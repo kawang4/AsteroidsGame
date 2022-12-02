@@ -1,7 +1,8 @@
 //your variable declarations here
 Spaceship rogueone;
-Star[] dots;
- 
+Star[] dots; 
+ArrayList <Asteroid> rocks;
+  
 public void setup()
 {
   size(400, 400);
@@ -9,10 +10,13 @@ public void setup()
   dots = new Star[100];
   for (int i = 0; i < dots.length; i++) {
     dots[i] = new Star();
- 
   }
- 
+  rocks = new ArrayList <Asteroid> ();
+  for (int j = 0; j < 30; j++) {
+    rocks.add(new Asteroid());
 }
+}
+
 public void draw()
 {
   background(0); 
@@ -20,8 +24,16 @@ public void draw()
   for (int i = 0; i < dots.length; i++) {
     dots[i].show();
   }
+  for (int j = 0; j < rocks.size(); j++) {
+    rocks.get(j).show();
+    rocks.get(j).move();
+    if (dist((float)rocks.get(j).getmyCenterX(), (float)rocks.get(j).getmyCenterY(), (float)rogueone.getmyCenterX(), (float)rogueone.getmyCenterY()) < 20) {
+      rocks.remove(j);
+    }
+  }
   rogueone.show();
   rogueone.move();
+  
 }
 
 public void keyPressed() {
