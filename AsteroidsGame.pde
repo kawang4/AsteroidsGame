@@ -23,17 +23,19 @@ public void setup()
 
 public void draw()
 {
-  background(0); 
-  textSize(48);
+  background(0);
+  for (int i = 0; i < dots.length; i++) {
+    dots[i].show();
+  }
+  fill(255, 255, 255);
+  textSize(20);
   textAlign(CENTER,CENTER);
   String[] lines  = loadStrings("score.txt");
   String[] otherlines  = loadStrings("health.txt");
   text("Score: " + lines[0],50,50);
   text("Health: " + otherlines[0],50,100);
   
-  for (int i = 0; i < dots.length; i++) {
-    dots[i].show();
-  }
+  
   for (int j = 0; j < rocks.size(); j++) {
     rocks.get(j).show();
     rocks.get(j).move();
