@@ -33,7 +33,7 @@ public void draw()
   String[] lines  = loadStrings("score.txt");
   String[] otherlines  = loadStrings("health.txt");
   text("Score: " + lines[0],50,50);
-  text("Health: " + otherlines[0],80,100);
+  text("Health: " + otherlines[0],60,100);
   
   
   for (int j = 0; j < rocks.size(); j++) {
