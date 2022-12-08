@@ -24,10 +24,10 @@ public void setup()
 public void draw()
 {
   background(0);
+  fill(255, 255, 255);
   for (int i = 0; i < dots.length; i++) {
     dots[i].show();
   }
-  fill(255, 255, 255);
   textSize(20);
   textAlign(CENTER,CENTER);
   String[] lines  = loadStrings("score.txt");
